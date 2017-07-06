@@ -33,7 +33,7 @@ var db = require("../models");
   router.put("/:id", function(req, res) {
     
     db.Burger.update({
-      devoured: req.body.devoured
+      devoured: false
     }, {
       where: {
         id: req.body.id
