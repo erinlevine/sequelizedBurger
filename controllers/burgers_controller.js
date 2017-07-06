@@ -33,10 +33,10 @@ var db = require("../models");
   router.put("/:id", function(req, res) {
     
     db.Burger.update({
-      devoured: false
+      devoured: req.body.devoured
     }, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(dbBurger){
       res.redirect("/");
