@@ -1,3 +1,9 @@
+var express = require("express");
+
+var router = express.Router();
+
+var burger = require("../models/burger.js");
+
 module.exports = function(sequelize, DataTypes) {
   var Burger = sequelize.define("Burgers", {
     burger_name: {
