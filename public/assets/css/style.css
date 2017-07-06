@@ -1,0 +1,22 @@
+* {
+	background-color: #F6C847;
+}
+
+.title {
+	text-align: center;
+	font-family: 'Bree Serif', serif;
+}
+
+
+.text-center {
+	font-family: 'Roboto', sans-serif;
+}
+
+.form-group {
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+.burgerImage {
+	padding-top: 30px;
+}

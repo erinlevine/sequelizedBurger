@@ -1,0 +1,77 @@
+{{!-- Setup the index.handlebars to have the template that Handlebars can render onto.
+
+Create a button in index.handlebars that will submit the user input into the database. --}}
+
+<div class="container-fluid">
+  <div class="burgerImage">
+    <center>
+    <img src="http://i.imgur.com/le0X5Wp.png">
+    </center>
+  </div>
+  
+  <h1 class="title">Eat Lotsa Burgers!</h1>
+  
+  <div class="container col-md-4 col-md-offset-4">
+    
+    <form class="center-block" action="/" method="POST">
+      
+      <div class="form-group">
+        
+        <label for="addBurger"></label>
+        <input type="text" class="form-control" id="addBurger" name="name" placeholder="Add a burger!">
+        
+        <p></p>
+        
+        <button type="submit" class="center-block btn btn-default">Submit</button>
+      
+      </div>
+      
+      
+    </form>
+  </div>
+  
+
+
+  <div class="container top">
+    <div class="row">
+      <div class="col-xs-6">
+        <h3><p class="text-center"><font color="#B12411">Burgers to Devour!</font></p></h3>
+        <ul class="list-group">
+          {{#each burgers}}
+          {{#unless this.devoured}}
+          <ol class="list-group-item">
+            {{this.burger_name}}
+            <p></p>
+            <form class="bottomForm" action="/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="1">
+              <button type="submit" class="btn btn-default">Devour it!</button>
+            </form>
+          </ol>
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+      
+
+
+      <div class="col-xs-6">
+        <h3><p class="text-center"><font color="#B12411">Devoured Burgers!</font></p></h3>
+        <ul class="list-group">
+          {{#each burgers}}
+          {{#if this.devoured}}
+          <li class="list-group-item">
+            {{this.burger_name}}
+            <p></p>
+            <form class="bottomForm" action="/{{this.id}}?_method=PUT" method="POST">
+              <input type="hidden" name="devoured" value="0">
+              <button type="submit" class="btn btn-default">Gimme More!</button>
+            </form>
+          </li>
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
