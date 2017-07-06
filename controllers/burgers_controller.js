@@ -1,14 +1,9 @@
-// Dependencies
-// =============================================================
+var express = require("express");
+var router = express.Router();
 
-// Requiring our Todo model
 var db = require("../models");
 
-// Routes
-// =============================================================
-module.exports = function(app) {
-
-  // GET route for getting all of the burgers
+// GET route for getting all of the burgers
   //CRUD: Read
   router.get("/", function(req, res) {
     // Add sequelize code to find all burgers, and render them to the user.
@@ -19,12 +14,10 @@ module.exports = function(app) {
       };
       res.render("index", hbsObject);
     });
- 
+});
 
 
-
-
-  // POST route for saving a new burger
+ // POST route for saving a new burger
   router.post("/", function(req, res) {
     // Add sequelize code for creating a new burger using req.body,
     // then redirecting to the index. 
@@ -36,10 +29,7 @@ module.exports = function(app) {
   });
 
 
-
-
-
-  // PUT route for updating burger
+// PUT route for updating burger
   router.put("/:id", function(req, res) {
     
     db.Burger.update({
@@ -53,9 +43,6 @@ module.exports = function(app) {
     });
   });
 
-})
-};
-
-
-
+//exporting to server.js
+module.exports = router;
 
