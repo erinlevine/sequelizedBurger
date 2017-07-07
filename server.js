@@ -10,6 +10,13 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var path = require("path");
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: "bmsyhziszmhf61g1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"
+  user: "sbj336v9go912dvv"
+  password: "fyb2atfayioky651"
+  database: 'h21knr23ltbbq9s3'
+});
 
 var PORT = process.env.PORT || 3000;
 var app = express();
